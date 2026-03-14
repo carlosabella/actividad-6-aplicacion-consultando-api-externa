@@ -41,7 +41,7 @@ En el home pintareis un listado de usuarios en formato GRID.
 El Wireframe de bajo nivel que representa la vista del home, sería algo como esto.
 
 Figura 1. Pantalla home. Fuente: elaboración propia.
-![Home](image2.png)
+![Home](image2.jpg)
 
 En esta pantalla veréis que hay un grid de usuarios donde se muestra la foto del usuario, el nombre y tres botones de **Ver detalle, Borrar y Actualizar.**
 
