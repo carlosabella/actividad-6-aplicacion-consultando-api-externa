@@ -26,13 +26,13 @@ La aplicación cargará inicialmente una página inicial donde ser cargará el l
 
 La aplicación tendrá las siguientes rutas:
 
-**/home**: donde ser cargará el listado de usuarios completo.
+- **/home**: donde ser cargará el listado de usuarios completo.
 
-**/user/1**: donde ser cargará la vista de usuario con todos sus datos. Nótese que el numero de la ruta corresponde al id del usuario.
+- **/user/1**: donde ser cargará la vista de usuario con todos sus datos. Nótese que el numero de la ruta corresponde al id del usuario.
 
-**/newuser**: donde ser cargará un formulario que dará de alta un usuario siguiendo el patron del api de creater user.
+- **/newuser**: donde ser cargará un formulario que dará de alta un usuario siguiendo el patron del api de creater user.
 
-**/updateuser/1**: se cargará reutilizando el formulario de registro los datos del usuario a actualizar para que se pueda actualizar los datos y mandárselos al api.
+- **/updateuser/1**: se cargará reutilizando el formulario de registro los datos del usuario a actualizar para que se pueda actualizar los datos y mandárselos al api.
 
 **IMPORTANTE:** el api es de pruebas luego la respuesta que ofrece sobre todo al tema de crear y actualizar están mockeadas (no son reales) pero os servirá para recoger la respuesta y gestionar correctamente los avisos al usuario. La creación de usuarios no generará usuarios nuevos, pero si te devolverá el usuario con su id creado.
 
