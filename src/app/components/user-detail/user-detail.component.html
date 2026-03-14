@@ -1,0 +1,29 @@
+<section>
+  <figure>
+    <img [src]="user()?.image">
+  </figure>
+  <section>
+    <div>
+      {{user()?.first_name}}
+    </div>
+    <div>
+      {{user()?.last_name}}
+    </div>
+    <div>
+      Nombre de Usuario: {{user()?.username}}
+    </div>
+    <div>
+      Email: {{user()?.email}}
+    </div>
+    <div>
+      <div>
+        Ver Detalle
+      </div>
+      <div>
+        Actualizar
+      </div>
+      <div>
+        Borrar
+      </div>
+    </div>
+</section>

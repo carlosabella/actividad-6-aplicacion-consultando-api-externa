@@ -3,10 +3,10 @@ export interface IUsersResponse {
     per_page: number;
     total: number;
     total_pages: number;
-    results: IUsers[];
+    results: IUser[];
 }
 
-export interface IUsers {
+export interface IUser {
     id: number;
     first_name: string;
     last_name: string;

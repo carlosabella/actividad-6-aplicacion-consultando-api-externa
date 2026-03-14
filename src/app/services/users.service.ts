@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IUsersResponse, IUsers } from '../interfaces/iusers';
+import { IUsersResponse, IUser } from '../interfaces/iusers';
 import { lastValueFrom } from 'rxjs';
 
 @Injectable({
@@ -14,19 +14,19 @@ export class UsersService {
     return lastValueFrom(this.http.get<IUsersResponse>('https://peticiones.online/api/users'));
   }
 
-  getById(id: string): Promise<IUsers> {
-    return lastValueFrom(this.http.get<IUsers>(`https://peticiones.online/api/users/${id}`));
+  getById(id: number): Promise<IUser> {
+    return lastValueFrom(this.http.get<IUser>(`https://peticiones.online/api/users/${id}`));
   }
 
-  newUser(user: IUsers): Promise<IUsers> {
-    return lastValueFrom(this.http.post<IUsers>('https://peticiones.online/api/users', user));
+  newUser(user: IUser): Promise<IUser> {
+    return lastValueFrom(this.http.post<IUser>('https://peticiones.online/api/users', user));
   }
 
-  updateUser(user: IUsers): Promise<IUsers> {
-    return lastValueFrom(this.http.put<IUsers>(`https://peticiones.online/api/users/${user.id}`, user));
+  updateUser(user: IUser): Promise<IUser> {
+    return lastValueFrom(this.http.put<IUser>(`https://peticiones.online/api/users/${user.id}`, user));
   }
 
-  deleteUser(id: string): Promise<IUsers> {
-    return lastValueFrom(this.http.delete<IUsers>(`https://peticiones.online/api/users/${id}`));
+  deleteUser(id: number): Promise<IUser> {
+    return lastValueFrom(this.http.delete<IUser>(`https://peticiones.online/api/users/${id}`));
   }
 }
