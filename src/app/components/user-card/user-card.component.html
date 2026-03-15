@@ -12,7 +12,7 @@
   <div [routerLink]="['/updateuser', user()?._id]">
     Actualizar
   </div>
-  <div (click)="deleteUser(user()?._id)">
+  <div (click)="user()?._id && deleteUser(user()!._id!)">
     Borrar
   </div>
 </section>

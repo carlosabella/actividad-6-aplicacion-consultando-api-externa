@@ -2,6 +2,7 @@ import { Component, inject, input } from '@angular/core';
 import { IUser } from '../../interfaces/iusers';
 import { RouterLink } from "@angular/router";
 import { UsersService } from '../../services/users.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-card',
@@ -14,6 +15,24 @@ export class UserCardComponent {
   usersService = inject(UsersService);
 
   async deleteUser(userId: string) {
-    const response = await this.usersService.deleteUser(userId);
+    const confirmation = await Swal.fire({
+      title: '¿Está seguro?',
+      text: 'Este cambio no se podrá revertir',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes',
+    });
+    if(confirmation.isConfirmed) {
+      const response = await this.usersService.deleteUser(userId);
+      Swal.fire({
+        title: 'Borrado',
+        text: 'El usuario ha sido borrado',
+        icon: 'success',
+      });
+
+    }
+
   }
 }
