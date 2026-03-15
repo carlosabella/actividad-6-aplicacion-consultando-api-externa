@@ -1,5 +1,10 @@
-import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, computed, inject, input } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import Swal from 'sweetalert2';
 import { UsersService } from '../../services/users.service';
 import { IUser } from '../../interfaces/iusers';
@@ -27,14 +32,16 @@ const CONFIRMATION_MESSAGE = new Map<string, MessageConfig>([
 ]);
 
 @Component({
-  selector: 'app-user-new',
+  selector: 'app-user-management',
   imports: [ReactiveFormsModule],
-  templateUrl: './user-new.component.html',
-  styleUrl: './user-new.component.css',
+  templateUrl: './user-management.component.html',
+  styleUrl: './user-management.component.css',
 })
-export class UserNewComponent {
+export class UserManagementComponent {
   userForm: FormGroup;
   users = inject(UsersService);
+  id = input<string>();
+  isNewUser = computed(()=> this.id() ? true : false);
 
   constructor() {
     this.userForm = new FormGroup({
@@ -60,9 +67,11 @@ export class UserNewComponent {
   async createUser() {
     const user: IUser = this.getFormData();
     const response = await this.users.newUser(user);
-    const responseType: string = response._id ? 'success' : 'error';
+    const responseType: string = response.id ? 'success' : 'error';
     const confirmationMessage = CONFIRMATION_MESSAGE.get(responseType);
-    this.showConfirmationMessage(confirmationMessage);
+    if (confirmationMessage) {
+      this.showConfirmationMessage(confirmationMessage);
+    }
     this.userForm.reset();
   }
 
