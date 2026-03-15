@@ -96,7 +96,7 @@ export class UserManagementComponent {
     if (confirmationMessage) {
       this.showConfirmationMessage(confirmationMessage);
     }
-    this.userForm.reset();
+    this.isNewUser() && this.userForm.reset();
   }
 
   newOrUpdate() {

@@ -9,10 +9,10 @@
   <div [routerLink]="['/user', user()?._id]">
     Ver Detalle
   </div>
-  <div>
+  <div [routerLink]="['/updateuser', user()?._id]">
     Actualizar
   </div>
-  <div>
+  <div (click)="deleteUser(user()?._id)">
     Borrar
   </div>
 </section>
