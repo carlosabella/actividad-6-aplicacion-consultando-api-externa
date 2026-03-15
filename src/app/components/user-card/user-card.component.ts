@@ -26,13 +26,19 @@ export class UserCardComponent {
     });
     if(confirmation.isConfirmed) {
       const response = await this.usersService.deleteUser(userId);
-      Swal.fire({
-        title: 'Borrado',
-        text: 'El usuario ha sido borrado',
-        icon: 'success',
-      });
-
+      if(response.id) {
+        Swal.fire({
+          title: 'Borrado',
+          text: 'El usuario ha sido borrado',
+          icon: 'success',
+        });
+      } else {
+        Swal.fire({
+          title: 'Error',
+          text: 'Ha ocurrido un error durante el borrado',
+          icon: 'error',
+        });
+      }
     }
-
   }
 }
