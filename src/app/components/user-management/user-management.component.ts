@@ -43,7 +43,7 @@ export class UserManagementComponent {
   id = input<string>();
   user = signal<IUser | null>(null);
   usersService = inject(UsersService);
-  isNewUser = computed(() => this.id() ? true : false);
+  isNewUser = computed(() => (!this.id() ? true : false));
 
   constructor() {
     this.userForm = new FormGroup({
@@ -67,25 +67,30 @@ export class UserManagementComponent {
   }
 
   async ngOnInit() {
-    if (this.id()) {
+    if (!this.isNewUser()) {
       const userId: string = String(this.id());
-      const fetchedUser = await this.usersService.getById(userId);
-      this.user.set(fetchedUser);
+      const currentUser = await this.usersService.getById(userId);
+      this.user.set(currentUser);
 
-      if (fetchedUser) {
+      if (currentUser) {
         this.userForm.patchValue({
-          nombre: fetchedUser.first_name,
-          apellido: fetchedUser.last_name,
-          email: fetchedUser.email,
-          imagen: fetchedUser.image,
+          nombre: currentUser.first_name,
+          apellido: currentUser.last_name,
+          email: currentUser.email,
+          imagen: currentUser.image,
         });
       }
     }
   }
 
-  async createUser() {
+  async manageUser() {
     const user: IUser = this.getFormData();
-    const response = await this.users.newUser(user);
+    let response: any;
+    if(this.isNewUser()){
+      response = await this.users.newUser(user);
+    } else {
+      response = await this.users.updateUser(user);
+    }
     const responseType: string = response.id ? 'success' : 'error';
     const confirmationMessage = CONFIRMATION_MESSAGE.get(responseType);
     if (confirmationMessage) {
@@ -94,8 +99,16 @@ export class UserManagementComponent {
     this.userForm.reset();
   }
 
+  newOrUpdate() {
+    return this.isNewUser() ? 'Guardar' : 'Actualizar';
+  }
+
   private getFormData(): IUser {
     let user: IUser = {} as IUser;
+    const currentUser = this.user();
+    if (!this.isNewUser() && currentUser) {
+      user = currentUser;
+    }
     const formUser = this.userForm.value;
     user.first_name = formUser.nombre;
     user.last_name = formUser.apellido;

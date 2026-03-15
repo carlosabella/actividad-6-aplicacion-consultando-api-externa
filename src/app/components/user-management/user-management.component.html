@@ -1,5 +1,5 @@
 <section>
-  <form [formGroup]="userForm" (ngSubmit)="createUser()">
+  <form [formGroup]="userForm" (ngSubmit)="manageUser()">
     <div>
       <label for="nombre" class="form-label">Nombre Usuario</label>
       <input type="text" class="form-control" id="nombre" placeholder="Introduzca nombre de usuario" formControlName="nombre">
@@ -16,6 +16,6 @@
       <label for="imagen" class="form-label">Imagen Usuario</label>
       <input type="text" class="form-control" id="imagen" placeholder="Introduzca imagen de usuario" formControlName="imagen">
     </div>
-    <input type="submit" class="btn btn-success" value="Guardar" [disabled]="!userForm.valid">
+    <input type="submit" class="btn btn-success" [value]="newOrUpdate()" [disabled]="!userForm.valid">
   </form>
 </section>

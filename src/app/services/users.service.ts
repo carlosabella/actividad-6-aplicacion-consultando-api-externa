@@ -23,7 +23,7 @@ export class UsersService {
   }
 
   updateUser(user: IUser): Promise<IUser> {
-    return lastValueFrom(this.http.put<IUser>(`https://peticiones.online/api/users/${user.id}`, user));
+    return lastValueFrom(this.http.put<IUser>(`https://peticiones.online/api/users/${user._id}`, user));
   }
 
   deleteUser(id: string): Promise<IUser> {
