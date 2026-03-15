@@ -1,1 +1,21 @@
-<p>user-new works!</p>
+<section>
+  <form [formGroup]="userForm" (ngSubmit)="createUser()">
+    <div>
+      <label for="nombre" class="form-label">Nombre Usuario</label>
+      <input type="text" class="form-control" id="nombre" placeholder="Introduzca nombre de usuario" formControlName="nombre">
+    </div>
+    <div>
+      <label for="apellido" class="form-label">Apellido Usuario</label>
+      <input type="text" class="form-control" id="apellido" placeholder="Introduzca apellido de usuario" formControlName="apellido">
+    </div>
+    <div>
+      <label for="email" class="form-label">Email Usuario</label>
+      <input type="text" class="form-control" id="email" placeholder="Introduzca email de usuario" formControlName="email">
+    </div>
+    <div>
+      <label for="imagen" class="form-label">Imagen Usuario</label>
+      <input type="text" class="form-control" id="imagen" placeholder="Introduzca imagen de usuario" formControlName="imagen">
+    </div>
+    <input type="submit" class="btn btn-success" value="Guardar" [disabled]="!userForm.valid">
+  </form>
+</section>
