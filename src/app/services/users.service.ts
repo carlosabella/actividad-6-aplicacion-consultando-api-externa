@@ -14,7 +14,7 @@ export class UsersService {
     return lastValueFrom(this.http.get<IUsersResponse>('https://peticiones.online/api/users'));
   }
 
-  getById(id: number): Promise<IUser> {
+  getById(id: string): Promise<IUser> {
     return lastValueFrom(this.http.get<IUser>(`https://peticiones.online/api/users/${id}`));
   }
 
@@ -26,7 +26,7 @@ export class UsersService {
     return lastValueFrom(this.http.put<IUser>(`https://peticiones.online/api/users/${user.id}`, user));
   }
 
-  deleteUser(id: number): Promise<IUser> {
+  deleteUser(id: string): Promise<IUser> {
     return lastValueFrom(this.http.delete<IUser>(`https://peticiones.online/api/users/${id}`));
   }
 }

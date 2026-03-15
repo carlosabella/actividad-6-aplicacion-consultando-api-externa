@@ -14,8 +14,7 @@ export class UserDetailComponent {
   usersService = inject(UsersService);
 
   async ngOnInit() {
-    console.log('CGA: ', this.id());
-    const userId: number = Number(this.id());
+    const userId: string = String(this.id());
     this.user.set(await this.usersService.getById(userId));
   }
 }

@@ -6,7 +6,7 @@
   <div>
     {{user()?.first_name}} {{user()?.last_name}}
   </div>
-  <div [routerLink]="['/user', user()?.id]">
+  <div [routerLink]="['/user', user()?._id]">
     Ver Detalle
   </div>
   <div>
