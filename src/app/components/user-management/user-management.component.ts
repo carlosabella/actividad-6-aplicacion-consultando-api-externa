@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -41,7 +41,9 @@ export class UserManagementComponent {
   userForm: FormGroup;
   users = inject(UsersService);
   id = input<string>();
-  isNewUser = computed(()=> this.id() ? true : false);
+  user = signal<IUser | null>(null);
+  usersService = inject(UsersService);
+  isNewUser = computed(() => this.id() ? true : false);
 
   constructor() {
     this.userForm = new FormGroup({
@@ -62,6 +64,23 @@ export class UserManagementComponent {
         Validators.minLength(3),
       ]),
     });
+  }
+
+  async ngOnInit() {
+    if (this.id()) {
+      const userId: string = String(this.id());
+      const fetchedUser = await this.usersService.getById(userId);
+      this.user.set(fetchedUser);
+
+      if (fetchedUser) {
+        this.userForm.patchValue({
+          nombre: fetchedUser.first_name,
+          apellido: fetchedUser.last_name,
+          email: fetchedUser.email,
+          imagen: fetchedUser.image,
+        });
+      }
+    }
   }
 
   async createUser() {
