@@ -1,9 +1,9 @@
 <nav id="navigation">
     <figure class="brand">
-        <img src="logo.png" class="logo" />
+        <img src="logo.png" class="logo" [routerLink]="['/home']"/>
     </figure>
     <ul class="menu">
-        <li>Home</li>
+        <li [routerLink]="['/home']">Home</li>
         <li>Nuevo Usuario</li>
     </ul>
 </nav>
