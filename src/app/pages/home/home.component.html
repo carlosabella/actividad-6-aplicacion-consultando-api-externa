@@ -1,6 +1,14 @@
  <section class="user-list">
-  @for(user of users; track user.id){
+  @for(user of usersResponse?.results; track user.id){
       <app-user-card [user]="user"/>
   }
  </section>
+<section class="paginate">
+  @for (page of pages; track page) {
+    <button class="page">{{page}}</button>
+    @if ($count > 0 && !$last ) {
+      <div class="connector"></div>
+    }
+  }
+</section>
 

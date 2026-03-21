@@ -5,3 +5,22 @@
     margin-top: 35px;
     margin-bottom: 5px;
 }
+
+.paginate {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.connector {
+  width: 50px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.175);
+}
