@@ -1,27 +1,32 @@
 #navigation {
-    display: flex;
-    align-items: baseline;
-    padding: 10px 4vw;
-    border-bottom-style: solid;
-    border-bottom-color: #d5d0d0;
+  display: flex;
+  align-items: baseline;
+  border-bottom-style: solid;
+  border-bottom-color: #d5d0d0;
 }
 
 .brand {
-    display: flex;
-    flex-grow: 30;
-    font-weight: bold;
+  margin: 0;
+  display: flex;
+  flex-grow: 30;
+  font-weight: bold;
 }
 
 .brand img {
-    object-fit: cover;
-    display: block;
-    width: 50px;
-    height: 47px;
+  object-fit: cover;
+  display: block;
+  width: 50px;
+  height: 47px;
 }
 
 .menu {
-    display: flex;
-    list-style-type: none;
-    gap: 30px;
-    flex-grow: 1;
+  display: flex;
+  list-style-type: none;
+  gap: 30px;
+  flex-grow: 1;
+}
+
+li.active {
+  color: red;
+  background-color: red;
 }

@@ -1,19 +1,24 @@
-<article>
-<figure>
-  <img [src]="user()?.image">
-</figure>
-<section>
-  <div>
-    {{user()?.first_name}} {{user()?.last_name}}
-  </div>
-  <div [routerLink]="['/user', user()?._id]">
-    Ver Detalle
-  </div>
-  <div [routerLink]="['/updateuser', user()?._id]">
-    Actualizar
-  </div>
-  <div (click)="user()?._id && deleteUser(user()!._id!)">
-    Borrar
-  </div>
-</section>
-</article>
+<div class="container">
+  <article>
+    <figure>
+      <img class="user-picture" [src]="user()?.image">
+    </figure>
+    <div class="user-name">
+      {{user()?.first_name}} {{user()?.last_name}}
+    </div>
+    <section class="options">
+      <button class="btn-options" [routerLink]="['/user', user()?._id]">
+        <img class="icon-action" src="assets/icons/view.svg" />
+        <span> Ver Detalle</span>
+      </button>
+      <button class="btn-options" [routerLink]="['/updateuser', user()?._id]">
+        <img class="icon-action" src="assets/icons/update.svg" />
+        <span>Actualizar</span>
+      </button>
+      <button class="btn-options" (click)="user()?._id && deleteUser(user()!._id!)">
+        <img class="icon-action" src="assets/icons/delete.svg" />
+        <span>Borrar</span>
+      </button>
+    </section>
+  </article>
+</div>

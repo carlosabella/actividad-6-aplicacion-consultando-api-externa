@@ -3,7 +3,7 @@
         <img src="logo.png" class="logo" [routerLink]="['/home']"/>
     </figure>
     <ul class="menu">
-        <li [routerLink]="['/home']">Home</li>
-        <li [routerLink]="['/newuser']">Nuevo Usuario</li>
+        <li routerLinkActive="active"><a [routerLink]="['/home']">Home</a></li>
+        <li ><a routerLinkActive="active" [routerLink]="['/newuser']">Nuevo Usuario</a></li>
     </ul>
 </nav>
