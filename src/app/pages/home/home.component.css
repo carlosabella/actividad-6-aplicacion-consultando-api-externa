@@ -22,7 +22,7 @@
   background-color: transparent;
 }
 .page.active {
-  background-color: grey;
+  background-color: rgb(198, 196, 196);
 }
 
 .connector {
