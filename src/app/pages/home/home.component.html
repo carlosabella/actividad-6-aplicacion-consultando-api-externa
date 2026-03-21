@@ -5,7 +5,7 @@
  </section>
 <section class="paginate">
   @for (page of pages; track page) {
-    <button class="page">{{page}}</button>
+    <button class="page" (click)="loadPage(page)">{{page}}</button>
     @if ($count > 0 && !$last ) {
       <div class="connector"></div>
     }

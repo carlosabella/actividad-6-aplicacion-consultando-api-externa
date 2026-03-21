@@ -5,9 +5,9 @@ import { IUsersResponse } from '../../interfaces/iusers';
 
 @Component({
   selector: 'app-home',
-  imports: [ UserCardComponent],
+  imports: [UserCardComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
   usersService = inject(UsersService);
@@ -15,11 +15,19 @@ export class HomeComponent implements OnInit {
   pages: number[] = [];
 
   async ngOnInit() {
-    const response = await this.usersService.getAll();
+    await this.loadUsers(0);
+  }
+
+  private async loadUsers(page: number) {
+    const response = await this.usersService.getAll(page);
     this.usersResponse = response;
     this.pages = Array.from(
       { length: this.usersResponse.total_pages },
       (_, i) => i + 1,
     );
+  }
+
+  async loadPage(page: number) {
+    await this.loadUsers(page);
   }
 }
