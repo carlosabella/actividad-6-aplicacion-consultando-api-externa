@@ -1,11 +1,11 @@
  <section class="user-list">
-  @for(user of usersResponse?.results; track user.id){
+  @for(user of usersResponse()?.results; track user.id){
       <app-user-card [user]="user"/>
   }
  </section>
 <section class="paginate">
-  @for (page of pages; track page) {
-    <button class="page" [class.active]="page === usersResponse?.page" (click)="loadPage(page)">{{page}}</button>
+  @for (page of pages(); track page) {
+    <button class="page" [class.active]="page === usersResponse()?.page" (click)="loadPage(page)">{{page}}</button>
     @if ($count > 0 && !$last ) {
       <div class="connector"></div>
     }
