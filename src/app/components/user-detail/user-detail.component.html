@@ -5,18 +5,22 @@
     </figure>
   </aside>
   <aside class="userdata-side">
-    <div>
-      {{user()?.first_name}}
-    </div>
-    <div>
-      {{user()?.last_name}}
-    </div>
-    <div>
-      Nombre de Usuario: {{user()?.username}}
-    </div>
-    <div>
-      Email: {{user()?.email}}
-    </div>
+    <section class="userdata">
+      <div>
+        {{user()?.first_name}}
+      </div>
+      <div>
+        {{user()?.last_name}}
+      </div>
+    </section>
+    <section class="appdata">
+      <div>
+        <span class="bold"> Nombre de Usuario:</span> {{user()?.username}}
+      </div>
+      <div>
+        <span class="bold">Email: </span>{{user()?.email}}
+      </div>
+    </section>
     <section class="options">
       <button class="btn-options" (click)="user()?._id && deleteUser(user()!._id!)">
         Eliminar

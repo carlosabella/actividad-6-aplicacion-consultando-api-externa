@@ -7,6 +7,13 @@
 
 .picture-side {
   border-right: 2px solid rgba(0, 0, 0, 0.175);
+  padding-right: 10px;
+}
+
+img {
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 
 .userdata-side {
@@ -14,23 +21,45 @@
   flex-direction: column;
   gap: 25px;
   margin-top: 15px;
+  margin-left: 15px;
+}
+
+.userdata {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-size: 25px;
+}
+
+.appdata {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-size: 18px;
 }
 
 .options {
   display: flex;
   flex-direction: row;
-  gap: 10px
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .btn-options {
   background-color: transparent;
+  border-radius: 8%;
   border: 2px solid rgba(0, 0, 0, 0.175);
   cursor: pointer;
-  height: 50px;
-  width: 125px;
+  height: 60px;
+  width: 135px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-size: 16px;
+}
+
+.bold {
+  font-weight: bold;
 }
