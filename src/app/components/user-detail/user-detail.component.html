@@ -1,10 +1,10 @@
-<div>
-  <aside>
-  <figure>
-    <img [src]="user()?.image">
-  </figure>
+<div class="container">
+  <aside class="picture-side">
+    <figure>
+      <img [src]="user()?.image">
+    </figure>
   </aside>
-  <aside>
+  <aside class="userdata-side">
     <div>
       {{user()?.first_name}}
     </div>
@@ -17,16 +17,16 @@
     <div>
       Email: {{user()?.email}}
     </div>
-    <div>
-      <div (click)="user()?._id && deleteUser(user()!._id!)">
+    <section class="options">
+      <button class="btn-options" (click)="user()?._id && deleteUser(user()!._id!)">
         Eliminar
-      </div>
-      <div>
+      </button>
+      <button class="btn-options" [routerLink]="['/updateuser', user()?._id]">
         Actualizar
-      </div>
-      <div>
+      </button>
+      <button class="btn-options" [routerLink]="['/home']">
         Volver al listado
-      </div>
-    </div>
+      </button>
+    </section>
   </aside>
 </div>

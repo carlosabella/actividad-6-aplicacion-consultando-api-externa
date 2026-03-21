@@ -22,7 +22,7 @@ export class UserCardComponent {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes',
+      confirmButtonText: 'Si',
     });
     if(confirmation.isConfirmed) {
       const response = await this.usersService.deleteUser(userId);
