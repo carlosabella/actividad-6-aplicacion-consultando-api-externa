@@ -1,6 +1,6 @@
 #navigation {
   display: flex;
-  align-items: baseline;
+  padding-bottom: 10px;
   border-bottom-style: solid;
   border-bottom-color: #d5d0d0;
 }
@@ -10,6 +10,7 @@
   display: flex;
   flex-grow: 30;
   font-weight: bold;
+  align-items: center;
 }
 
 .brand img {
@@ -32,6 +33,6 @@ li {
 }
 
 a.active {
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.175);
   padding-bottom: 5px;
 }
