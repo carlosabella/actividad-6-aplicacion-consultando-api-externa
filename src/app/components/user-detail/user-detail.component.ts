@@ -20,18 +20,17 @@ export class UserDetailComponent {
     this.user.set(await this.usersService.getById(userId));
   }
 
-  async deleteUser(userId: string) {
+  async deleteUser(user: IUser) {
     const confirmation = await Swal.fire({
-      title: '¿Está seguro?',
-      text: 'Este cambio no se podrá revertir',
+      text: `Deseas borrar el usuario ${user.first_name} ${user.last_name}`,
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#2874A6',
+      cancelButtonColor: '#ffffff',
       confirmButtonText: 'Si',
     });
     if (confirmation.isConfirmed) {
-      const response = await this.usersService.deleteUser(userId);
+      const response = await this.usersService.deleteUser(user._id);
       if (response.id) {
         Swal.fire({
           title: 'Borrado',

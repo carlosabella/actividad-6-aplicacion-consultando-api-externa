@@ -22,7 +22,7 @@
       </div>
     </section>
     <section class="options">
-      <button class="btn-options" (click)="user()?._id && deleteUser(user()!._id!)">
+      <button class="btn-options" (click)="user()?._id && deleteUser(user()!)">
         Eliminar
       </button>
       <button class="btn-options" [routerLink]="['/updateuser', user()?._id]">
