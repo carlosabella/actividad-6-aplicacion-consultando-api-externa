@@ -27,7 +27,13 @@
   flex-grow: 1;
 }
 
-li.active {
-  color: red;
+li {
+  font-size: 20px;
+}
+
+a.active {
+  color: white;
   background-color: red;
+  padding: 5px 10px;
+  border-radius: 4px;
 }
