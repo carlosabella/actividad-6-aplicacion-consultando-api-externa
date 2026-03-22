@@ -26,7 +26,6 @@ export class UserDetailComponent {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#2874A6',
-      cancelButtonColor: '#ffffff',
       confirmButtonText: 'Si',
     });
     if (confirmation.isConfirmed) {
