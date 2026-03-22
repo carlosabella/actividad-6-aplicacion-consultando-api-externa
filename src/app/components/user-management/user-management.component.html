@@ -6,18 +6,36 @@
     <div class="fields">
       <label for="nombre" >Nombre Usuario</label>
       <input type="text"  id="nombre" placeholder="Introduzca nombre de usuario" formControlName="nombre">
+      @if(checkControl('nombre', 'required' )){
+        <p class="error">Campo  Obligatorio</p>
+      }
     </div>
     <div class="fields">
       <label for="apellido" >Apellido Usuario</label>
       <input type="text"  id="apellido" placeholder="Introduzca apellido de usuario" formControlName="apellido">
+      @if(checkControl('apellido', 'required' )){
+        <p class="error">Campo  Obligatorio</p>
+      }
     </div>
     <div class="fields">
       <label for="email" >Email Usuario</label>
       <input type="text"  id="email" placeholder="Introduzca email de usuario" formControlName="email">
+      @if(checkControl('email', 'required' )){
+        <p class="error">Campo  Obligatorio</p>
+      }
+      @if(checkControl('email', 'pattern' )){
+        <p class="error">El email proporcionado no es correcto</p>
+      }
     </div>
     <div class="fields">
       <label for="imagen" >Imagen Usuario</label>
       <input type="text"  id="imagen" placeholder="Introduzca imagen de usuario" formControlName="imagen">
+      @if(checkControl('imagen', 'required' )){
+        <p class="error">Campo  Obligatorio</p>
+      }
+      @if(checkControl('imagen', 'pattern' )){
+        <p class="error">La url de la imagen no es correcta</p>
+      }
     </div>
     <input type="submit" class="btn" [value]="newOrUpdate()" [disabled]="!userForm.valid">
   </form>

@@ -57,11 +57,11 @@ export class UserManagementComponent {
       ]),
       email: new FormControl('', [
         Validators.required,
-        Validators.minLength(3),
+        Validators.pattern(/^[\w.+]+@([a-zA-Z]+(-[a-zA-Z]+)*\.)+[a-zA-Z]{2,}$/),
       ]),
       imagen: new FormControl('', [
         Validators.required,
-        Validators.minLength(3),
+        Validators.pattern(/^https?:\/\/[^\s]+$/),
       ]),
     });
   }
@@ -86,7 +86,7 @@ export class UserManagementComponent {
   async manageUser() {
     const user: IUser = this.getFormData();
     let response: any;
-    if(this.isNewUser()){
+    if (this.isNewUser()) {
       response = await this.users.newUser(user);
     } else {
       response = await this.users.updateUser(user);
@@ -101,6 +101,13 @@ export class UserManagementComponent {
 
   newOrUpdate() {
     return this.isNewUser() ? 'Guardar' : 'Actualizar';
+  }
+
+  checkControl(controlName: string, errorName: string): boolean | undefined {
+    return (
+      this.userForm.get(controlName)?.hasError(errorName) &&
+      this.userForm.get(controlName)?.touched
+    );
   }
 
   private getFormData(): IUser {
