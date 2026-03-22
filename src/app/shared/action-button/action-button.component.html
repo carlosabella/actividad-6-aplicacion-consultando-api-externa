@@ -1,11 +1,15 @@
 @if (isActionLink()) {
   <button [class]="cssClass()" [routerLink]="routerLink()">
-    <img class="icon-action" [src]="icon()" />
+    @if(type() == ButtonType.image) {
+      <img class="icon-action" [src]="icon()" />
+    }
     <span>{{action()}}</span>
   </button>
 } @else {
   <button [class]="cssClass()" (click)="handleAction()">
-    <img class="icon-action" [src]="icon()" />
+    @if(type() == ButtonType.image) {
+      <img class="icon-action" [src]="icon()" />
+    }
     <span>{{action()}}</span>
   </button>
 }

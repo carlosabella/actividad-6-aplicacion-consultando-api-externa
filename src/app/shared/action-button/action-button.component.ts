@@ -28,6 +28,7 @@ export class ActionButtonComponent {
   isActionLink = input<Boolean>(false);
   user = input<IUser>();
   usersService = inject(UsersService);
+  ButtonType = ButtonType;
   routerLink = computed(() => {
     if (this.action() == Actions.List) {
       return ['/home'];
@@ -42,16 +43,16 @@ export class ActionButtonComponent {
     const action = this.action();
     switch (action) {
       case Actions.Delete:
-        return "assets/icons/delete.svg";
+        return 'assets/icons/delete.svg';
       case Actions.Update:
         return 'assets/icons/update.svg';
       case Actions.View:
-        return "assets/icons/view.svg";
+        return 'assets/icons/view.svg';
       default:
         return null;
     }
   });
-  cssClass = computed(()=> {
+  cssClass = computed(() => {
     const buttonType = this.type();
     switch (buttonType) {
       case ButtonType.image:
@@ -63,10 +64,10 @@ export class ActionButtonComponent {
     }
   });
 
-  async handleAction(){
+  async handleAction() {
     const user = this.user();
     if (this.action() == Actions.Delete && user) {
-        await this.deleteUser(user);
+      await this.deleteUser(user);
     }
     return null;
   }
