@@ -22,15 +22,23 @@
       </div>
     </section>
     <section class="options">
-      <button class="btn-options" (click)="user()?._id && deleteUser(user()!)">
-        Eliminar
-      </button>
-      <button class="btn-options" [routerLink]="['/updateuser', user()?._id]">
-        Actualizar
-      </button>
-      <button class="btn-options" [routerLink]="['/home']">
-        Volver al listado
-      </button>
+      <app-action-button
+        [type]="ButtonType.text",
+        [action]="Actions.Delete",
+        [isActionLink]="false"
+        [user]="user()!"
+      ></app-action-button>
+      <app-action-button
+        [type]="ButtonType.text",
+        [action]="Actions.Update",
+        [user]="user()!"
+        [isActionLink]="true"
+      ></app-action-button>
+      <app-action-button
+        [type]="ButtonType.text",
+        [action]="Actions.List"
+        [isActionLink]="true"
+      ></app-action-button>
     </section>
   </aside>
 </div>

@@ -3,10 +3,15 @@ import { IUser } from '../../interfaces/iusers';
 import { UsersService } from '../../services/users.service';
 import { RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
+import {
+  ActionButtonComponent,
+  ButtonType,
+  Actions
+} from '../../shared/action-button/action-button.component';
 
 @Component({
   selector: 'app-user-detail',
-  imports: [RouterLink],
+  imports: [RouterLink, ActionButtonComponent],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.css',
 })
@@ -14,6 +19,9 @@ export class UserDetailComponent {
   id = input<string>();
   user = signal<IUser | null>(null);
   usersService = inject(UsersService);
+
+  public Actions = Actions;
+  public ButtonType = ButtonType;
 
   async ngOnInit() {
     const userId: string = String(this.id());

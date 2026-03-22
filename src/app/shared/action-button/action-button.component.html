@@ -1,0 +1,9 @@
+@if (isActionLink()) {
+  <button class="btn-options" [routerLink]="routerLink()">
+    {{action()}}
+  </button>
+} @else {
+  <button class="btn-options" (click)="handleAction()">
+    {{action()}}
+  </button>
+}
