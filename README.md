@@ -41,14 +41,14 @@ En el home pintareis un listado de usuarios en formato GRID.
 El Wireframe de bajo nivel que representa la vista del home, sería algo como esto.
 
 Figura 1. Pantalla home. Fuente: elaboración propia.
-![Home](image2.jpg)
+![Home](images/image2.jpg)
 
 En esta pantalla veréis que hay un grid de usuarios donde se muestra la foto del usuario, el nombre y tres botones de **Ver detalle, Borrar y Actualizar.**
 
 Si pulsáis a ver detalle la página redireccionará a la siguiente ruta **(user/1)** y cargáis la vista del usuario que sigue la estructura de este wireframe.
 
 Figura 2. Pantalla usuario. Fuente: elaboración propia.
-![Usuario](image4.png)
+![Usuario](images/image4.png)
 
 En esta pantalla deberéis mostrar toda la información del usuario que os sirva el api proporcionado. Además, esta pantalla tendrá tres botones.
 
@@ -57,14 +57,14 @@ En esta pantalla deberéis mostrar toda la información del usuario que os sirva
 - Y el botón de eliminar que lanzará un mensaje de alerta avisándonos que vamos a eliminar el usuario X.
 
 Figura 3. Pantalla borrar usuario. Fuente: elaboración propia.
-![Borrar usuario](image3.png)
+![Borrar usuario](images/images/image3.png)
 
 En esta vista podéis ver una pantalla de confirmación, si das a aceptar se produce el envío al api y si das a cancelar vuelves a la pantalla del usuario. (Nota podéis realizar este popup con librerías de investigación por vuestra parte como sweetAlert o con el aviso de confirm típico de JavaScript)
 
 Esta misma interacción deberá ocurrir si hacemos click en el botón de borrar del listado de usuarios.
 
 Figura 4. Pantalla borrar usuario home. Fuente: elaboración propia.
-![Borrar Usuario home](image6.png)
+![Borrar Usuario home](images/image6.png)
 
 **NOTA**: En la documentación del api en la url que hemos puesto al principio tenéis los mensajes de Response (correcto) y Error para que los podáis gestionar dentro del vuestro frontEnd.
 
@@ -77,14 +77,14 @@ Este formulario necesitará de validaciones para que todos los campos sean relle
 El wireframe del formulario será de la siguiente forma:
 
 Figura 5. Pantalla crear nuevo usuario. Fuente: elaboración propia.
-![Nuevo Usuario](image5.png)
+![Nuevo Usuario](images/image5.png)
 
 Este mismo componente se deberá usar para la actualización del usuario, es decir cuando demos en el botón actualizar del usuario, deberá cargar este mismo componente, pero con el texto actualizar usuario y el botón en lugar de guardar debe poner Actualizar.
 
 Si pulsamos en el botón de Actualizar usuario este formulario debe aparecer relleno de tal forma que se pueda editar y modificar para ser actualizado de la siguiente forma. Ojo los campos están en rojo para remarcar no porque el resultado tenga que esta así.
 
 Figura 6. Actualizar usuario. Fuente: elaboración propia.
-![Nuevo Usuario](image7.png)
+![Nuevo Usuario](images/image7.png)
 
 Y con este paso se completará un CRUD (Create Read Update Delete) completo desde angular contra una API, externa. Es el mismo proceso que se realiza en un ejemplo fullstack lo que pasa es que esta vez los endpoint del Backend no están realizado por vosotros.
 
