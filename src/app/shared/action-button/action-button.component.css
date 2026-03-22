@@ -1,4 +1,4 @@
-.btn-options {
+.btn-text-options {
   background-color: transparent;
   border-radius: 8%;
   border: 2px solid rgba(0, 0, 0, 0.175);
@@ -11,4 +11,22 @@
   align-items: center;
   text-align: center;
   font-size: 16px;
+}
+
+.btn-image-options {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  height: 80px;
+  width: 85px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.icon-action {
+  height: 40px;
+  width: 40px;
 }

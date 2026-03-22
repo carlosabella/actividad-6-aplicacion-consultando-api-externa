@@ -1,9 +1,11 @@
 @if (isActionLink()) {
-  <button class="btn-options" [routerLink]="routerLink()">
-    {{action()}}
+  <button [class]="cssClass()" [routerLink]="routerLink()">
+    <img class="icon-action" [src]="icon()" />
+    <span>{{action()}}</span>
   </button>
 } @else {
-  <button class="btn-options" (click)="handleAction()">
-    {{action()}}
+  <button [class]="cssClass()" (click)="handleAction()">
+    <img class="icon-action" [src]="icon()" />
+    <span>{{action()}}</span>
   </button>
 }

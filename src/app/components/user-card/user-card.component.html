@@ -7,18 +7,24 @@
       {{user()?.first_name}} {{user()?.last_name}}
     </div>
     <section class="options">
-      <button class="btn-options" [routerLink]="['/user', user()?._id]">
-        <img class="icon-action" src="assets/icons/view.svg" />
-        <span> Ver Detalle</span>
-      </button>
-      <button class="btn-options" [routerLink]="['/updateuser', user()?._id]">
-        <img class="icon-action" src="assets/icons/update.svg" />
-        <span>Actualizar</span>
-      </button>
-      <button class="btn-options" (click)="user()?._id && deleteUser(user()!)">
-        <img class="icon-action" src="assets/icons/delete.svg" />
-        <span>Borrar</span>
-      </button>
+      <app-action-button
+        [type]="ButtonType.image",
+        [action]="Actions.View",
+        [isActionLink]="true"
+        [user]="user()!"
+      />
+      <app-action-button
+        [type]="ButtonType.image",
+        [action]="Actions.Update",
+        [isActionLink]="true"
+        [user]="user()!"
+      />
+      <app-action-button
+        [type]="ButtonType.image",
+        [action]="Actions.Delete",
+        [isActionLink]="false"
+        [user]="user()!"
+      />
     </section>
   </article>
 </div>

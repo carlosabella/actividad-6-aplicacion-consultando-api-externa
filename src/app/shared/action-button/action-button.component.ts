@@ -8,6 +8,7 @@ export enum Actions {
   Delete = 'Eliminar',
   Update = 'Actualizar',
   List = 'Volver al Listado',
+  View = 'Ver Detalle',
 }
 
 export enum ButtonType {
@@ -32,9 +33,34 @@ export class ActionButtonComponent {
       return ['/home'];
     } else if (this.action() == Actions.Update) {
       return ['/updateuser', this.user()?._id];
+    } else if (this.action() == Actions.View) {
+      return ['/user', this.user()?._id];
     }
     return null;
-
+  });
+  icon = computed(() => {
+    const action = this.action();
+    switch (action) {
+      case Actions.Delete:
+        return "assets/icons/delete.svg";
+      case Actions.Update:
+        return 'assets/icons/update.svg';
+      case Actions.View:
+        return "assets/icons/view.svg";
+      default:
+        return null;
+    }
+  });
+  cssClass = computed(()=> {
+    const buttonType = this.type();
+    switch (buttonType) {
+      case ButtonType.image:
+        return 'btn-image-options';
+      case ButtonType.text:
+        return 'btn-text-options';
+      default:
+        return null;
+    }
   });
 
   async handleAction(){
