@@ -1,8 +1,6 @@
 import { Component, inject, input } from '@angular/core';
 import { IUser } from '../../interfaces/iusers';
-import { RouterLink } from "@angular/router";
 import { UsersService } from '../../services/users.service';
-import Swal from 'sweetalert2';
 import {
   ActionButtonComponent,
   ButtonType,
@@ -11,7 +9,7 @@ import {
 
 @Component({
   selector: 'app-user-card',
-  imports: [RouterLink, ActionButtonComponent],
+  imports: [ActionButtonComponent],
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.css',
 })
